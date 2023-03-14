@@ -28,7 +28,7 @@ public class UserController {
 	
 	@GetMapping("/test")
 	public Optional<UserEntity> test(@RequestHeader("Authorization") String token) {
-		String name = jwtService.extractUsername(token.split(" ")[1].toString());
+		String name = jwtService.extractUsername(token);
 		return userService.findByname(name);
 
 	}
